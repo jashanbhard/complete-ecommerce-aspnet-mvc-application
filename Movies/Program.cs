@@ -1,6 +1,18 @@
+using Microsoft.EntityFrameworkCore;
+using Movies.Data;
+using Movies.Data.Services;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
+//DbContext Configuration
+builder.Services.AddDbContext<AppDbContext>(options =>
+{
+    options.UseSqlServer(builder.Configuration.GetConnectionString ("DefaultConnectionString"));
+});
+//Services configuration 
+builder.Services.AddScoped<IActorsService, ActorsService>();
+
 builder.Services.AddControllersWithViews();
 
 var app = builder.Build();
@@ -23,5 +35,8 @@ app.UseAuthorization();
 app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Home}/{action=Index}/{id?}");
+
+//Seed database
+AppDbInitializer.Seed(app);
 
 app.Run();
