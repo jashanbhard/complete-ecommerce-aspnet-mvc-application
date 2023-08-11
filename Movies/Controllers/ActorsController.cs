@@ -60,7 +60,7 @@ namespace Movies.Controllers
             await _service.UpdateAsync(id, actor);
             return RedirectToAction(nameof(Index));
         }
-        //Get Actor Edit/1
+        //Get Actor delete/1
         public async Task<IActionResult> Delete(int id)
         {
             var actorDetails = await _service.GetByIdAsync(id);
