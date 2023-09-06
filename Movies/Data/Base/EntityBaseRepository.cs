@@ -1,6 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.ChangeTracking;
 using Movies.Models;
+using System.Linq.Expressions;
 
 namespace Movies.Data.Base
 {
@@ -28,6 +29,13 @@ namespace Movies.Data.Base
         }
 
         public async Task<IEnumerable<T>> GetAllAsync() => await _context.Set<T>().ToListAsync();
+
+        public async Task<IEnumerable<T>> GetAllAsync(params Expression<Func<T, object>>[] includeproperties)
+        {
+            IQueryable<T> querry = _context.Set<T>();
+            querry = includeproperties.Aggregate(querry, (current, includeproperties) => current.Include(includeproperties));
+            return await querry.ToListAsync();
+        }
 
         public async Task<T> GetByIdAsync(int id) => await _context.Set<T>().FirstOrDefaultAsync(n => n.Id == id);
 

@@ -41,11 +41,7 @@
             </tbody>
 
         </table>
-        @*asp-controller="producers" has been removed as we are in the index.cshtml file inside the procducers folder and can ben use without adding asp-contoller="producers" for the below button*@
-        <div style="position:fixed; right:105px; bottom:85px" class="text-white">
-            <a asp-action="Create" class="btn btn-outline-success">
-                <i class="bi bi-plus-circle"></i> Add new Producer</a>
-        </div>
+        @await Html.PartialAsync("_createIteam", "Producers")
     </div>
 </div>
 @*onclick="return confirm('Are you sure you wish to delete this article?');"*@ 

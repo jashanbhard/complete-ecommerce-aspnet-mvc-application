@@ -253,8 +253,6 @@ namespace Movies.Data
                             ActorId = 5,
                             MovieId = 3
                         },
-
-
                         new Actor_Movie()
                         {
                             ActorId = 2,
@@ -270,8 +268,6 @@ namespace Movies.Data
                             ActorId = 4,
                             MovieId = 4
                         },
-
-
                         new Actor_Movie()
                         {
                             ActorId = 2,
@@ -292,8 +288,6 @@ namespace Movies.Data
                             ActorId = 5,
                             MovieId = 5
                         },
-
-
                         new Actor_Movie()
                         {
                             ActorId = 3,

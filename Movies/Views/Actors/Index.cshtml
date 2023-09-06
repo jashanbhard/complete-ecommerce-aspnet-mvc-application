@@ -41,9 +41,8 @@
             </tbody>
 
         </table>
-        <div style="position:fixed; right:105px; bottom:85px" class="text-white">
-            <a asp-controller="Actors" asp-action="Create" class="btn btn-outline-success"><i class="bi bi-plus-circle"></i> Add new Actor</a>
-        </div>
+        @await Html.PartialAsync("_createIteam", "Actors")
+
     </div>
 </div>
 
