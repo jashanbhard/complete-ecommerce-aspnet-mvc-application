@@ -34,6 +34,7 @@
                                 <li><a class="dropdown-item" asp-controller="Cinemas" asp-action="Index"><i class="bi bi-camera-reels"> Cinemas</i></a></li>
                                 <li><a class="dropdown-item" asp-controller="Producers" asp-action="Index"><i class="bi bi-headset"> Producers</i></a></li>
                                 <li><a class="dropdown-item" asp-controller="Actors" asp-action="Index"><i class="bi bi-person-video"> Actors</i></a></li>
+                                <li><a class="dropdown-item" asp-controller="Orders" asp-action="ShoppingCart"><i class="bi bi-cart"> Orders</i></a></li>
                             </ul>
                         </li>
                     </ul>
@@ -49,7 +50,9 @@
                         </div>
                    </div>
                 </form>
-
+                <ul class="navbar-nav">
+                    @await Component.InvokeAsync("ShoppingCartSummary") @*to show cart with items in it near search bar*@
+                </ul>
             </div>
         </nav>
     </header>
