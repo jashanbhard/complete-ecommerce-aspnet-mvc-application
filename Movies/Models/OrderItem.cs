@@ -7,7 +7,7 @@ namespace Movies.Models
     {
         [Key]
         public int Id { get; set; }
-        public double Amount { get; set; }
+        public int Amount { get; set; }
         public double Price { get; set; }
 
         public int MovieId { get; set; }
